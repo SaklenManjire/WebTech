@@ -1,0 +1,5 @@
+display student info 
+check number is even and odd
+check stud pass and fail
+print numbers from any range
+x and y value assignment
