@@ -16,3 +16,5 @@ console.log(Math.ceil(4.6))//Returns the smallest integer greater than or equal 
 console.log(Math.floor(4.6))//Returns the greatest integer less than or equal to its numeric argument
 console.log(Math.min(1,2,3))//Returns the smaller of a set of supplied numeric expressions.
 console.log(Math.random())
+
+
