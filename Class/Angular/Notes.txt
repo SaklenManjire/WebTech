@@ -1,0 +1,33 @@
+Angular is a typescript based frontend framework devloped by google.
+It is a single page application SPA.
+It helps a build SPA.
+Where the page dose not fully reload when naviagtion between different views.
+
+prerequireset tools for angualr:-node.js , npm and angular cli.
+
+cli-command line interface it is used create and manage 
+
+packages list include dependencies(part of production build) and dev dependencies(Only for local devlopment).
+angular.json-Project configaution file.
+style.css-gloabal 
+.gitignore-files and folder execute from version control 
+tsconfig.json-type script configaution file.
+index.html-main html file loads angular.
+app.config.ts - app configaution file.
+main.ts-entry point of application.
+
+
+components-component is ui block or structure when we create one component 
+command-ng g c component_name
+
+When we create 4 files are created.
+
+Data binding-connect ui to code
+
+type of Data binding:
+1.one way
+    -interpolation:
+        -Show data from ts in html {{value}}
+    -property
+    -event
+2.two way

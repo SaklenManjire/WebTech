@@ -17,3 +17,43 @@ Create 3-4 routes
 3.Create something 
 4.HTTP methods
 
+
+middleware:
+-used for token authentication and before goes to functionallity.
+-this is middle in request and response.
+-middleware have a 3 paramaters request,resposne and next.
+
+
+function:
+let checktoken=(req,res,next)=>{
+    console.log("Welcome");
+    next();
+}
+
+for run this:
+app.use(checktoken)//middleware
+
+
+Activity:
+why we use middleware
+what is type of middleware
+what is benefit of middleware
+in a company level where middleware is used.
+
+
+handling request and response Express application habdle hhtp request and response.
+
+.URL
+.headers
+.query paramaters
+.request calls
+
+
+-the response data seems data back to the clinets.
+
+common resposne method
+1.res.seems()
+2.res.json()
+3.res.status()-check HTTP status
+4.res.sendfiles()
+
