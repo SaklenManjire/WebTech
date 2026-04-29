@@ -1,0 +1,236 @@
+/* ── TopicForm Page Styles ── */
+
+.form-page {
+  padding: 2rem 1rem;
+  min-height: calc(100vh - 64px);
+  background: #f4f4fb;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+/* The white form card */
+.form-container {
+  background: #fff;
+  border-radius: 14px;
+  padding: 2rem 2.5rem;
+  width: 100%;
+  max-width: 580px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+/* Form header */
+.form-header {
+  margin-bottom: 1.5rem;
+}
+
+.form-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin: 0 0 0.3rem 0;
+}
+
+.form-subtitle {
+  color: #888;
+  font-size: 0.88rem;
+  margin: 0;
+}
+
+/* Success alert */
+.alert {
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 1.25rem;
+}
+
+.alert-success {
+  background: #d1fae5;
+  color: #065f46;
+  border: 1px solid #6ee7b7;
+}
+
+/* Form layout */
+.topic-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* Individual field wrapper */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  position: relative;
+}
+
+/* Label */
+.form-label {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.required {
+  color: #e11d48;
+}
+
+/* Input / Textarea / Select shared style */
+.form-input {
+  padding: 0.6rem 0.85rem;
+  border: 1.5px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 0.92rem;
+  color: #1a1a2e;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  background: #fff;
+  font-family: inherit;
+}
+
+.form-input:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.12);
+}
+
+/* Error state for input */
+.input-error {
+  border-color: #e11d48;
+}
+
+.input-error:focus {
+  box-shadow: 0 0 0 3px rgba(225, 29, 72, 0.1);
+}
+
+/* Textarea specific */
+.form-textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Character counter */
+.char-count {
+  font-size: 0.75rem;
+  color: #aaa;
+  text-align: right;
+  margin-top: 0.15rem;
+}
+
+/* Error message */
+.error-msg {
+  font-size: 0.8rem;
+  color: #e11d48;
+  margin: 0;
+}
+
+/* Side-by-side fields row */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+/* ── Preview Panel ── */
+.preview-panel {
+  background: #f8f7ff;
+  border: 1px dashed #c4b5fd;
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+}
+
+.preview-title {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: #888;
+  margin: 0 0 0.6rem 0;
+  font-weight: 600;
+}
+
+.preview-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.preview-body p {
+  margin: 0;
+  font-size: 0.88rem;
+  color: #444;
+}
+
+.placeholder-text {
+  color: #bbb;
+  font-style: italic;
+}
+
+/* Preview badges */
+.preview-badge {
+  display: inline-block;
+  padding: 0.15rem 0.6rem;
+  border-radius: 99px;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.preview-badge.status-notstarted { background: #f1f5f9; color: #475569; }
+.preview-badge.status-inprogress  { background: #fef3c7; color: #92400e; }
+.preview-badge.status-completed   { background: #d1fae5; color: #065f46; }
+
+.preview-badge.priority-low    { background: #dcfce7; color: #166534; }
+.preview-badge.priority-medium { background: #fef3c7; color: #92400e; }
+.preview-badge.priority-high   { background: #fee2e2; color: #b91c1c; }
+
+/* ── Action Buttons ── */
+.form-actions {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: flex-end;
+  padding-top: 0.5rem;
+}
+
+.btn-cancel {
+  padding: 0.6rem 1.4rem;
+  background: #f1f5f9;
+  color: #555;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-cancel:hover {
+  background: #e2e8f0;
+}
+
+.btn-submit {
+  padding: 0.6rem 1.6rem;
+  background: #4f46e5;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-submit:hover {
+  background: #4338ca;
+}
+
+/* Responsive: stack side-by-side fields on small screens */
+@media (max-width: 480px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .form-container {
+    padding: 1.5rem 1.25rem;
+  }
+}

@@ -1,0 +1,281 @@
+/* ── Dashboard Page Styles ── */
+
+.dashboard-page {
+  padding: 2rem;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Page Header */
+.page-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.page-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin: 0;
+}
+
+.page-subtitle {
+  color: #666;
+  margin: 0.25rem 0 0 0;
+  font-size: 0.95rem;
+}
+
+/* Primary button */
+.btn-primary {
+  background-color: #4f46e5;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-primary:hover {
+  background-color: #4338ca;
+}
+
+/* Link-style button */
+.btn-link {
+  background: none;
+  border: none;
+  color: #4f46e5;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+}
+
+.btn-link:hover {
+  text-decoration: underline;
+}
+
+/* ── Stats Grid ── */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+.stat-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.2rem 1.5rem;
+  border-radius: 12px;
+  border-left: 4px solid transparent;
+  background: #fff;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.07);
+}
+
+.stat-icon {
+  font-size: 1.8rem;
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  color: #888;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.stat-number {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1;
+}
+
+/* Card colour accents */
+.stat-total       { border-left-color: #6366f1; }
+.stat-total .stat-number { color: #6366f1; }
+
+.stat-inprogress  { border-left-color: #f59e0b; }
+.stat-inprogress .stat-number { color: #f59e0b; }
+
+.stat-completed   { border-left-color: #10b981; }
+.stat-completed .stat-number { color: #10b981; }
+
+.stat-notstarted  { border-left-color: #94a3b8; }
+.stat-notstarted .stat-number { color: #94a3b8; }
+
+/* ── Progress Section ── */
+.progress-section {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.07);
+}
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.section-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1a1a2e;
+  margin: 0;
+}
+
+.progress-pct {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #4f46e5;
+}
+
+.progress-track {
+  width: 100%;
+  height: 14px;
+  background: #e5e7eb;
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #4f46e5, #818cf8);
+  border-radius: 99px;
+  transition: width 0.4s ease;
+}
+
+.progress-note {
+  font-size: 0.82rem;
+  color: #888;
+  margin: 0.5rem 0 0 0;
+}
+
+/* ── Recent Topics ── */
+.recent-section {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.07);
+}
+
+.section-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.recent-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.recent-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid #f0f0f0;
+  border-radius: 8px;
+  transition: box-shadow 0.2s;
+}
+
+.recent-card:hover {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+/* Status dot */
+.status-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.dot-done        { background-color: #10b981; }
+.dot-progress    { background-color: #f59e0b; }
+.dot-notstarted  { background-color: #94a3b8; }
+
+.recent-info {
+  flex: 1;
+}
+
+.recent-title {
+  font-weight: 600;
+  color: #1a1a2e;
+  margin: 0 0 0.2rem 0;
+  font-size: 0.95rem;
+}
+
+.recent-desc {
+  color: #777;
+  font-size: 0.82rem;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 380px;
+}
+
+.recent-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.3rem;
+}
+
+.status-text {
+  font-size: 0.78rem;
+  color: #888;
+}
+
+/* ── Priority Badges ── */
+.badge {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  border-radius: 99px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.badge-high   { background: #fee2e2; color: #b91c1c; }
+.badge-medium { background: #fef3c7; color: #92400e; }
+.badge-low    { background: #dcfce7; color: #166534; }
+
+/* ── Tips Section ── */
+.tips-section {
+  background: #f8f7ff;
+  border: 1px solid #e0deff;
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.tips-list {
+  margin: 0.75rem 0 0 0;
+  padding-left: 1.4rem;
+  color: #444;
+  line-height: 2;
+  font-size: 0.9rem;
+}
+
+.empty-msg {
+  color: #aaa;
+  font-size: 0.9rem;
+  text-align: center;
+  padding: 1rem 0;
+}

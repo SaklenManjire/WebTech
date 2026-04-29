@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="controls">
+        <h2>Controls</h2>
+        <input [(ngModel)]="message" placeholder="Enter Message">
+        <button (click)="sendToChild()" >Send To Child</button>
+    </div>
+
+    <div class="visualization">
+        <app-visual-box
+         [title]="Parent"
+         [data]="paraentData"
+        ></app-visual-box>
+
+        <app-visual-box
+         [title]="Child"
+         [data]="childData">
+        </app-visual-box>
+    </div>
+</div>

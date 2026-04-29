@@ -5,7 +5,7 @@ function greet(name) {
     console.log(name)
     document.writeln(`${name}<br>`)
 }
-greet("Atharv !!")
+greet("Saklen !!")
 
 const greet1 = (name) => {
     console.log(name)
@@ -33,7 +33,7 @@ class Student {
         showAge()
     }
 }
-let stud1 = new Student("Atharv", 20)
+let stud1 = new Student("Saklen", 20)
 stud1.greet()
 stud1.showMyAge()
 document.writeln("<br>")

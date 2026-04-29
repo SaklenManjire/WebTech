@@ -1,0 +1,251 @@
+═══════════════════════════════════════════════════════════════
+STUDENT EXPENSE TRACKER - QUICK REFERENCE
+═══════════════════════════════════════════════════════════════
+
+PROJECT: Student Expense Tracker
+LANGUAGE: JavaScript (React)
+BUILD: Vite
+STYLING: Tailwind CSS
+DATA: localStorage (no backend)
+
+═══════════════════════════════════════════════════════════════
+FILE LOCATIONS & PURPOSES
+═══════════════════════════════════════════════════════════════
+
+src/App.jsx
+  → Main application component
+  → Orchestrates all sub-components
+  → Manages overall page structure
+
+src/components/ExpenseForm.jsx
+  → Form for adding new expenses
+  → Validates input (amount > 0, description filled)
+  → Resets after submission
+
+src/components/ExpenseList.jsx
+  → Displays all (or filtered) expenses
+  → Shows total amount
+  → Empty state message
+
+src/components/ExpenseItem.jsx
+  → Single expense card
+  → Category badge with color
+  → Delete button
+  → Formatted date
+
+src/components/CategoryFilter.jsx
+  → Filter buttons (All, Food, Transport, etc.)
+  → Visual feedback for selected category
+  → Calls onCategoryChange callback
+
+src/components/Statistics.jsx
+  → Spending breakdown by category
+  → Progress bars for each category
+  → Percentage calculation
+  → Total spending summary
+
+src/hooks/useExpenses.js
+  → Custom hook with all business logic
+  → State: expenses array, selectedCategory
+  → Methods: addExpense(), deleteExpense()
+  → localStorage sync with useEffect
+  → Filtered data calculation
+
+═══════════════════════════════════════════════════════════════
+KEY FUNCTIONS & HOOKS
+═══════════════════════════════════════════════════════════════
+
+useExpenses() Hook:
+  - addExpense(expense) → Adds new expense, saves to localStorage
+  - deleteExpense(id) → Removes expense by ID
+  - setSelectedCategory(category) → Updates filter
+  - Returns: filteredExpenses, totalSpent, categoryTotals, etc.
+
+ExpenseForm Component:
+  - Validates inputs before submission
+  - onSubmit callback → calls addExpense()
+  - Auto-resets form after adding
+
+ExpenseItem Component:
+  - onDelete callback → calls deleteExpense()
+  - Category color mapping
+  - Date formatting (DD Mon YYYY)
+
+═══════════════════════════════════════════════════════════════
+STATE MANAGEMENT FLOW
+═══════════════════════════════════════════════════════════════
+
+  expenses: []
+    ↓ (useState)
+    ├→ filteredExpenses (filtered by category)
+    ├→ totalSpent (sum of filtered)
+    ├→ categoryTotals (sum per category)
+    
+  selectedCategory: string
+    ↓ (useState)
+    └→ Used to filter expenses array
+    
+  useEffect (localStorage):
+    Load on mount
+    Save on change
+
+═══════════════════════════════════════════════════════════════
+DATA STRUCTURE
+═══════════════════════════════════════════════════════════════
+
+Expense Object:
+{
+  id: string,              // Unique identifier (Date.now())
+  category: string,        // Food/Transport/Studies/Entertainment/Other
+  amount: number,          // Amount in rupees
+  description: string,     // What was spent on
+  date: string            // Date in YYYY-MM-DD format
+}
+
+Example:
+{
+  id: "1699872000000",
+  category: "Food",
+  amount: 150.50,
+  description: "Lunch at cafeteria",
+  date: "2024-01-15"
+}
+
+═══════════════════════════════════════════════════════════════
+COLORS & STYLING
+═══════════════════════════════════════════════════════════════
+
+Category Badge Colors:
+  Food → Orange (bg-orange-100 text-orange-800)
+  Transport → Blue (bg-blue-100 text-blue-800)
+  Studies → Green (bg-green-100 text-green-800)
+  Entertainment → Purple (bg-purple-100 text-purple-800)
+  Other → Gray (bg-gray-100 text-gray-800)
+
+Progress Bar Colors (Statistics):
+  Same as badges but bg-200 instead of bg-100
+
+Overall Theme:
+  Light gray background (bg-gray-50)
+  White cards with subtle borders
+  Blue accent color (#2563eb) for primary actions
+
+═══════════════════════════════════════════════════════════════
+COMMON OPERATIONS
+═══════════════════════════════════════════════════════════════
+
+Add Expense:
+  1. User fills form
+  2. Clicks "Add Expense"
+  3. ExpenseForm validates
+  4. Calls onSubmit(expense)
+  5. addExpense() creates entry with ID
+  6. Updates state
+  7. useEffect saves to localStorage
+  8. Components re-render
+
+Delete Expense:
+  1. User clicks delete on expense
+  2. ExpenseItem calls onDelete(id)
+  3. deleteExpense(id) removes from array
+  4. Updates state
+  5. useEffect saves to localStorage
+  6. Components re-render
+
+Filter by Category:
+  1. User clicks category button
+  2. CategoryFilter calls onCategoryChange(category)
+  3. setSelectedCategory updates state
+  4. filteredExpenses recalculated
+  5. totalSpent recalculated
+  6. Components re-render
+
+═══════════════════════════════════════════════════════════════
+FORM VALIDATION
+═══════════════════════════════════════════════════════════════
+
+Checks in ExpenseForm.jsx:
+  ✓ Amount is not empty
+  ✓ Amount is > 0
+  ✓ Description is not empty
+  ✓ Description trimmed of whitespace
+
+If any check fails:
+  → Alert shown to user
+  → Form not submitted
+  → Data not saved
+
+═══════════════════════════════════════════════════════════════
+RESPONSIVE DESIGN
+═══════════════════════════════════════════════════════════════
+
+Mobile (< 1024px):
+  Single column layout
+  Form, Stats, Filter, List stacked vertically
+
+Desktop (≥ 1024px):
+  Two column layout
+  Left (1/3): Form + Statistics
+  Right (2/3): Filter + List
+
+Grid: grid-cols-1 lg:grid-cols-3
+
+═══════════════════════════════════════════════════════════════
+LOCALSTORAGE KEY
+═══════════════════════════════════════════════════════════════
+
+Key: "student_expenses"
+Format: JSON array of Expense objects
+Auto-load: On app mount (useEffect)
+Auto-save: On expenses state change (useEffect)
+Persistence: Survives browser refresh
+
+Access in DevTools:
+  → Application tab
+  → LocalStorage
+  → Look for "student_expenses" key
+
+═══════════════════════════════════════════════════════════════
+SCRIPTS
+═══════════════════════════════════════════════════════════════
+
+npm run dev       → Start development server (localhost:5173)
+npm run build     → Create production build (dist/)
+npm run preview   → Preview production build locally
+
+═══════════════════════════════════════════════════════════════
+DEMO SCRIPT FOR VIVA
+═══════════════════════════════════════════════════════════════
+
+1. "Let me add a few expenses..."
+   - Fill form: Food, 250, "Lunch"
+   - Fill form: Transport, 50, "Auto ride"
+   - Fill form: Studies, 100, "Books"
+   - Click Add for each
+
+2. "Here we can see all expenses in the list"
+   - Point to list, show amounts, dates
+   - Show delete functionality
+
+3. "Now let's filter by category"
+   - Click "Food" → shows only food expense
+   - Click "All" → shows all again
+   - Notice total updates dynamically
+
+4. "The statistics show spending breakdown"
+   - Point to progress bars
+   - Show percentage calculation
+   - Highlight color coding
+
+5. "Let's verify data persists"
+   - Refresh page (F5)
+   - Show data is still there
+   - Open DevTools → LocalStorage
+   - Show "student_expenses" key
+
+6. "The code structure is clean and modular"
+   - Brief folder structure explanation
+   - Mention useExpenses hook
+   - Show simple, readable JavaScript
+
+═══════════════════════════════════════════════════════════════

@@ -31,3 +31,4 @@ type of Data binding:
     -property
     -event
 2.two way
+ -ngModel

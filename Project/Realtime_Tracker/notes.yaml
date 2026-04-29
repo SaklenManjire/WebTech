@@ -1,0 +1,9 @@
+-check the your browser supports geolocation.
+
+-set options for high-accuracy,a 5 second timout and no caching
+
+-use watcposition to track the users location continousally.
+
+-Emit the latitude and longitude via a socket with "send-location" .
+ long any errors to the console.
+
